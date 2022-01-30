@@ -5,6 +5,7 @@ import Layout from "../styles/layout";
 import Loader from "../components/Loader";
 import paths from "../config/paths";
 
+const Home = lazy(() => import("../pages/home"));
 const Random = lazy(() => import("../pages/random"));
 const Ingredients = lazy(() => import("../pages/ingredients"));
 const Details = lazy(() => import("../pages/details"));
@@ -22,7 +23,7 @@ const Routing = () => {
             <Route path={paths.DETAILS} element={<Details />} />
             <Route path={paths.CATEGORIES} element={<Categories />} />
             <Route path={paths.FAVORITES} element={<Favorites />} />
-            <Route index element={<Random />} />
+            <Route index element={<Home />} />
             {
               // <Route index element={<Home />} />
             }
