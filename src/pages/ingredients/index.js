@@ -92,7 +92,7 @@ export default function Ingredients() {
             </Grid>
             <Grid item xs={12} md={6}>
               <div className="image-cocktails">
-                <img src={require("../../assets/images/cocktails.png")}></img>
+                <img src={require("../../assets/images/ideas.jpg")}></img>
               </div>
             </Grid>
           </Grid>

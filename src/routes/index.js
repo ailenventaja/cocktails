@@ -23,7 +23,7 @@ const Routing = () => {
             <Route path={paths.DETAILS} element={<Details />} />
             <Route path={paths.CATEGORIES} element={<Categories />} />
             <Route path={paths.FAVORITES} element={<Favorites />} />
-            <Route index element={<Home />} />
+            <Route index element={<Random />} />
             <Route path="*" element={<NotFound />} />
             {
               // <Route index element={<Home />} />

@@ -94,10 +94,7 @@ export default function Categories() {
             </Grid>
             <Grid item xs={12} md={6}>
               <div className="image-cocktails">
-                <img
-                  style={{ width: "90%" }}
-                  src={require("../../assets/images/large-cocktails.png")}
-                ></img>
+                <img src={require("../../assets/images/ideas.jpg")}></img>
               </div>
             </Grid>
           </Grid>

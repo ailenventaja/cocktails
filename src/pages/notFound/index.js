@@ -18,7 +18,7 @@ const NotFound = () => {
         gutterBottom
         sx={{ textAlign: "center", color: "primary.main" }}
       >
-        Esta página no existe
+        This page doesn't exist
       </Typography>
       <div className="not-found-image">
         <img src={require("../../assets/images/not-found.JPG")}></img>
