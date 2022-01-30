@@ -1,41 +1,29 @@
 import React from "react";
-import { Box, CssBaseline, Paper } from "@mui/material";
-import { StyledEngineProvider } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import "./styles.scss";
 
 const NotFound = () => {
   return (
-    <StyledEngineProvider injectFirst>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            p: 3,
-            backgroundColor: "primary.main",
-            height: "100vh",
-          }}
-        >
-          <Box sx={{ width: "100%" }}>
-            <Paper
-              sx={{
-                width: "90%",
-                height: { xs: "95%", sm: "90%", md: "85%" },
-                mb: 2,
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <Paper sx={{ mt: "26px" }} elevation={0}>
-                <div>404</div>
-              </Paper>
-            </Paper>
-          </Box>
-        </Box>
-      </Box>
-    </StyledEngineProvider>
+    <>
+      <Typography
+        variant="h1"
+        component="div"
+        gutterBottom
+        sx={{ textAlign: "center", color: "primary.main" }}
+      >
+        ERROR 404
+      </Typography>
+      <Typography
+        variant="body1"
+        gutterBottom
+        sx={{ textAlign: "center", color: "primary.main" }}
+      >
+        Esta página no existe
+      </Typography>
+      <div className="not-found-image">
+        <img src={require("../../assets/images/not-found.JPG")}></img>
+      </div>
+    </>
   );
 };
 

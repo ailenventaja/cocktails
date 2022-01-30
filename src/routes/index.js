@@ -24,11 +24,11 @@ const Routing = () => {
             <Route path={paths.CATEGORIES} element={<Categories />} />
             <Route path={paths.FAVORITES} element={<Favorites />} />
             <Route index element={<Home />} />
+            <Route path="*" element={<NotFound />} />
             {
               // <Route index element={<Home />} />
             }
           </Route>
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </Suspense>
