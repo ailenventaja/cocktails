@@ -26,14 +26,17 @@ export default function Ingredients() {
         variant="h3"
         component="div"
         gutterBottom
-        sx={{ textAlign: "center", color: "primary.main" }}
+        sx={{ textAlign: "center", color: "primary.main", m: "10px" }}
       >
         ADD FAVORITES
       </Typography>
       <Typography
         variant="body1"
         gutterBottom
-        sx={{ textAlign: "center", color: "primary.main" }}
+        sx={{
+          textAlign: "center",
+          color: "primary.main",
+        }}
       >
         You'll see your fave drinks here!
       </Typography>
