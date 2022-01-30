@@ -1,0 +1,57 @@
+.image-grid {
+  grid-template-columns: repeat(auto-fill, 200px) !important;
+  gap: 6px !important;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.image-grid::-webkit-scrollbar {
+  width: 20px;
+}
+
+.image-grid::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.image-grid::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  border-left: 0;
+  border-right: 0;
+  background-color: #9dcfd4;
+  height: 50px;
+}
+
+.favorite-gal {
+  color: #9dcfd4;
+  :hover {
+    color: white;
+  }
+}
+
+.no-favorite-gal {
+  color: white;
+
+  :hover {
+    color: #9dcfd4;
+  }
+}
+
+.thumb {
+  position: relative;
+
+  img {
+    display: block;
+  }
+  svg {
+    position: absolute;
+    left: 80%;
+    top: 5%;
+  }
+  .info {
+    svg {
+      position: relative;
+      left: 0;
+    }
+  }
+}
