@@ -44,33 +44,45 @@ export default function Gallery(props) {
   const forceUpdate = useForceUpdate();
   const handleFavorites = (item) => {
     var favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
-      const index = favoritesList.findIndex(
-        (element) => element.idDrink === item.idDrink
-      );
-      favoritesList.splice(index, 1);
-      if (props.fromFavorites) {
-        const index = drinks.findIndex(
+    if (favoritesList) {
+      if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
+        const index = favoritesList.findIndex(
           (element) => element.idDrink === item.idDrink
         );
-        drinks.splice(index, 1);
+        favoritesList.splice(index, 1);
+        if (props.fromFavorites) {
+          const index = drinks.findIndex(
+            (element) => element.idDrink === item.idDrink
+          );
+          drinks.splice(index, 1);
+        }
+      } else {
+        var favoriteDrink = new Object();
+        favoriteDrink.idDrink = item.idDrink;
+        favoriteDrink.strDrink = item.strDrink;
+        favoriteDrink.strDrinkThumb = item.strDrinkThumb;
+        favoritesList.push(favoriteDrink);
       }
     } else {
       var favoriteDrink = new Object();
       favoriteDrink.idDrink = item.idDrink;
       favoriteDrink.strDrink = item.strDrink;
       favoriteDrink.strDrinkThumb = item.strDrinkThumb;
+      var favoritesList = [];
       favoritesList.push(favoriteDrink);
     }
     localStorage.setItem("favorites", JSON.stringify(favoritesList));
-    console.log(JSON.parse(localStorage.getItem("favorites")));
     forceUpdate();
   };
 
   const getTitle = (item) => {
     var favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
-      return "Remove";
+    if (favoritesList) {
+      if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
+        return "Remove";
+      } else {
+        return "Add";
+      }
     } else {
       return "Add";
     }
@@ -78,8 +90,12 @@ export default function Gallery(props) {
 
   const getClass = (item) => {
     var favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
-      return "favorite-gal";
+    if (favoritesList) {
+      if (favoritesList.find((x) => x.idDrink === item.idDrink)) {
+        return "favorite-gal";
+      } else {
+        return "no-favorite-gal";
+      }
     } else {
       return "no-favorite-gal";
     }

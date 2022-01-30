@@ -37,9 +37,14 @@ export default function CocktailDetails(props) {
   }, []);
   const checkClass = () => {
     var favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favoritesList.find((x) => x.idDrink === drink.idDrink)) {
-      setIconClass("favorite");
-      setTitle("Remove");
+    if (favoritesList) {
+      if (favoritesList.find((x) => x.idDrink === drink.idDrink)) {
+        setIconClass("favorite");
+        setTitle("Remove");
+      } else {
+        setIconClass("no-favorite");
+        setTitle("Add");
+      }
     } else {
       setIconClass("no-favorite");
       setTitle("Add");
@@ -47,22 +52,32 @@ export default function CocktailDetails(props) {
   };
   const handleFavorites = () => {
     var favoritesList = JSON.parse(localStorage.getItem("favorites"));
-    if (favoritesList.find((x) => x.idDrink === drink.idDrink)) {
-      const index = favoritesList.findIndex(search);
-      favoritesList.splice(index, 1);
-      setIconClass("no-favorite");
-      setTitle("Add");
+    if (favoritesList) {
+      if (favoritesList.find((x) => x.idDrink === drink.idDrink)) {
+        const index = favoritesList.findIndex(search);
+        favoritesList.splice(index, 1);
+        setIconClass("no-favorite");
+        setTitle("Add");
+      } else {
+        var favoriteDrink = new Object();
+        favoriteDrink.idDrink = drink.idDrink;
+        favoriteDrink.strDrink = drink.strDrink;
+        favoriteDrink.strDrinkThumb = drink.strDrinkThumb;
+        favoritesList.push(favoriteDrink);
+        setIconClass("favorite");
+        setTitle("Remove  ");
+      }
     } else {
       var favoriteDrink = new Object();
       favoriteDrink.idDrink = drink.idDrink;
       favoriteDrink.strDrink = drink.strDrink;
       favoriteDrink.strDrinkThumb = drink.strDrinkThumb;
+      var favoritesList = [];
       favoritesList.push(favoriteDrink);
       setIconClass("favorite");
       setTitle("Remove  ");
     }
     localStorage.setItem("favorites", JSON.stringify(favoritesList));
-    console.log(JSON.parse(localStorage.getItem("favorites")));
   };
 
   return (
