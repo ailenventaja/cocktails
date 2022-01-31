@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, BrowserRouter as Router, Route } from "react-router-dom";
-import NotFound from "../pages/notFound";
 import Layout from "../styles/layout";
 import Loader from "../components/Loader";
 import paths from "../config/paths";
@@ -11,6 +10,7 @@ const Ingredients = lazy(() => import("../pages/ingredients"));
 const Details = lazy(() => import("../pages/details"));
 const Categories = lazy(() => import("../pages/categories"));
 const Favorites = lazy(() => import("../pages/favorites"));
+const _Error = lazy(() => import("../pages/_error"));
 
 const Routing = () => {
   return (
@@ -24,7 +24,7 @@ const Routing = () => {
             <Route path={paths.CATEGORIES} element={<Categories />} />
             <Route path={paths.FAVORITES} element={<Favorites />} />
             <Route index element={<Random />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/error" element={<_Error />} />
             {
               // <Route index element={<Home />} />
             }

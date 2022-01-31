@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import "./styles.scss";
 
-const NotFound = () => {
+const _Error = () => {
   return (
     <>
       <Typography
@@ -27,4 +27,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default _Error;
