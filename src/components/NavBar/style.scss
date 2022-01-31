@@ -1,7 +1,4 @@
-.menu {
-  button {
-    .active {
-      background-color: red !important;
-    }
-  }
+.clicked {
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }

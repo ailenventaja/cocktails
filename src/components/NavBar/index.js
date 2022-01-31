@@ -19,7 +19,8 @@ import "./style.scss";
 const NavBar = () => {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  var pathName = window.location.pathname;
+  console.log(pathName);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -84,24 +85,30 @@ const NavBar = () => {
               </MenuItem>
             </Menu>
             <Button
+              className={pathName === paths.INGREDIENTS ? "clicked" : ""}
               sx={{ my: 2, display: { xs: "none", xsm: "inline" } }}
               onClick={() => handleOnClick(paths.INGREDIENTS)}
             >
               Ingredients
             </Button>
             <Button
+              className={pathName === paths.CATEGORIES ? "clicked" : ""}
               sx={{ my: 2, display: { xs: "none", xsm: "inline" } }}
               onClick={() => handleOnClick(paths.CATEGORIES)}
             >
               Categories
             </Button>
             <Button
+              className={
+                pathName === paths.RANDOM || pathName === "/" ? "clicked" : ""
+              }
               sx={{ my: 2, display: { xs: "none", xsm: "inline" } }}
               onClick={() => handleOnClick(paths.RANDOM)}
             >
               Random
             </Button>
             <Button
+              className={pathName === paths.FAVORITES ? "clicked" : ""}
               sx={{ my: 2, display: { xs: "none", sm: "inline" } }}
               onClick={() => handleOnClick(paths.FAVORITES)}
             >
