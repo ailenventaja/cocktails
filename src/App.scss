@@ -43,8 +43,12 @@ img {
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
 svg {
   user-select: none !important;
   -moz-user-select: none;
